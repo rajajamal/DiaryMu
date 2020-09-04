@@ -1,0 +1,24 @@
+<h1>Stories</h1>
+<div class="row">
+    {{#each stories}}
+    <div class="col s12 m4">
+        <div class="card">
+            {{{editIcon user ../user _id}}}
+        </div>
+        <div class="card-content center-align">
+            <h5>{{title}}</h5>
+            <p>{{stripTags (truncade body 150)}}</p>
+            <br>
+            <div class="chip">
+                <img src="{{user.image}}" alt="">
+                <a href="/stories/user/{{user.id}}">{{user.displayName}}</a>
+            </div>
+        </div>
+        <div class="card-action center-align">
+            <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+        </div>
+    </div>
+    {{else}}
+    <p>No stories to display</p>
+    {{/each}}
+</div>
